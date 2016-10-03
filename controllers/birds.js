@@ -31,7 +31,6 @@ birdsController.getOneBird = function(req, res){
 
 birdsController.addBird = function(req, res){
     var requestBody = req.body;
-    console.log(requestBody);
     var birdData = birdsModel.addBird(requestBody);
     birdData.then(function(data){
         var response = {};

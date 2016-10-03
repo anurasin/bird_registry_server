@@ -6,7 +6,6 @@ var q = require('q');
 var birdSchema = new mongoose.Schema({
 	  id: { type: String, required: true },
 	  name: { type: String, required: true },
-	  continents: { type: String, required: true },
 	  added: { type: String, required: true },
 	  visible: { type: Boolean, required: true },
 	  family: { type: String, required: true },
@@ -21,7 +20,7 @@ var birdsModel = {};
 birdsModel.getAllBirds = function(){
 	var results = q.defer();
 
-	BirdDBModel.find(function(err, bird_result) {
+	BirdDBModel.find({ visible: true}, function(err, bird_result) {
 		if (err){
 			results.reject(err);
 		}
@@ -57,16 +56,14 @@ birdsModel.getOne = function(id){
 }
 
 //function to add a single bird.
-birdsModel.addBird= function(inputData){
-    var results = q.defer();
-    console.log(inputData);
+birdsModel.addBird = function(inputData){
+    var results = q.defer()
     inputData = validateBirdData(inputData);
 
     if(!inputData){
         results.reject({status:'error', error:'bird data is not valid.'});
     }
 
-    console.log(inputData);
     var newBird = new BirdDBModel(inputData);
     newBird.save(function(err, bird) {
       if(err){
