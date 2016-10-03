@@ -11,7 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/anurasin/bird_registry_server.git"
   },
-  "author": "anurag_singh",
+  "author": "anurasin",
+  "email": "sharingan.anurag@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/anurasin/bird_registry_server/issues"
