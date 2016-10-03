@@ -1,5 +1,5 @@
 {
-  "name": "saltside_server",
+  "name": "bird_registry_server",
   "version": "1.0.0",
   "description": "bird registry",
   "main": "index.js",
